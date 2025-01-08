@@ -1,0 +1,6 @@
+<div>
+  <button (click)="onSelectUser()">
+    <img [src]="imagePath()" [alt]="selectedUser().name">
+    <span>{{selectedUser().name}}{{birthday | date:'EEEE' | uppercase | lowercase}}</span>
+  </button>
+</div>
