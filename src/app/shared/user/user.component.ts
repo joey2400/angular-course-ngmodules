@@ -1,6 +1,7 @@
-import { Component, computed, Input, input } from '@angular/core';
+import { Component, computed, Input, input, Output, output, EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from './dummy';
 import { CommonModule } from '@angular/common';
+import { using } from 'rxjs';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
@@ -11,13 +12,26 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  // @Input() avatar!: string;
-  // @Input({ required: true }) name!: string;
-  avatar = input<string>();
-  name = input.required<string>();
+  // Using angular decorators
+  @Input({ required: true }) id!: string;
+  @Input() avatar!: string;
+  @Input({ required: true }) name!: string;
+  @Output() select = new EventEmitter<string>();
 
-  // get imagePath() {
-  //   return 'users/' + this.avatar;
-  // }
-  imagePath = computed(() => 'users/' + this.avatar())
+  // Modern ay of using output
+  // select = output<string>();
+
+  // Using signals
+  // avatar = input<string>();
+  // name = input.required<string>();
+  // imagePath = computed(() => 'users/' + this.avatar());
+
+
+  get imagePath() {
+    return 'users/' + this.avatar;
+  }
+
+  onSelectUser() {
+    this.select.emit(this.id);
+  }
 }
