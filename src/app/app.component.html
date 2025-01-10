@@ -16,5 +16,7 @@
       <app-user [id]="users[3].id" [avatar]="users[3].avatar" [name]="users[3].name" (select)="onSelectUser($event)"></app-user>
     </li>
   </ul>
+
+  <app-tasks [name]="selectedUser.name"></app-tasks>
 </main>
 <router-outlet />
