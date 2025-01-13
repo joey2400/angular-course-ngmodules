@@ -6,9 +6,9 @@
       <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
     </li>
     }
-
   </ul>
-
-  <app-tasks [name]="selectedUser?.name"></app-tasks>
+  @if(selectedUser){
+  <app-tasks [name]="selectedUser.name"></app-tasks>
+  }
 </main>
 <router-outlet />
