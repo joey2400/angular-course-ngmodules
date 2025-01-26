@@ -1,7 +1,7 @@
 import { Component, computed, Input, input, Output, output, EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from './dummy';
 import { CommonModule } from '@angular/common';
-import { using } from 'rxjs';
+import { User } from './user.model';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
@@ -11,11 +11,6 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 //   avatar: string;
 // }
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
 @Component({
   selector: 'app-user',
   imports: [CommonModule],
