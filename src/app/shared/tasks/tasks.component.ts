@@ -1,8 +1,9 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, inject, input, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { dummyTasks } from '../../service/task/dummy-tasks';
 import { NewTaskComponent } from "./new-task/new-task.component";
 import { NewTaskData } from './task/task.model';
+import { TaskService } from '../../service/task/task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -15,14 +16,14 @@ export class TasksComponent {
   @Input({ required: true }) name!: string;
   // @Input() name: string | undefined;
   isAddingTask: boolean = false;
-  tasks = dummyTasks;
+
+  private taskService = inject(TaskService);
 
   get selectedUserTasks() {
-    return
+    return this.taskService.getUserTasks(this.userId);
   }
 
   onCompleteTask(id: string) {
-
   }
 
   onStartAddTask() {
@@ -34,7 +35,6 @@ export class TasksComponent {
   }
 
   onAddTask(taskData: NewTaskData) {
-
     this.isAddingTask = false;
   }
 
