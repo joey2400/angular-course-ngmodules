@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output, signal } from '@angular/core';
-import { TaskService } from '../../../service/task/task.service';
+import { TaskService } from '../../service/task/task.service';
 
 @Component({
   selector: 'app-new-task',
