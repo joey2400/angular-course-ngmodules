@@ -24,6 +24,7 @@ export class TasksComponent {
   }
 
   onCompleteTask(id: string) {
+    this.taskService.removeTask(id);
   }
 
   onStartAddTask() {
@@ -31,10 +32,6 @@ export class TasksComponent {
   }
 
   onCancelAddTask() {
-    this.isAddingTask = false;
-  }
-
-  onAddTask(taskData: NewTaskData) {
     this.isAddingTask = false;
   }
 
