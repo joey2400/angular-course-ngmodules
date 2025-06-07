@@ -1,7 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from "./new-task/new-task.component";
-import { TaskService } from '../../service/task/task.service';
+import { TaskService } from '../service/task/task.service';
 
 @Component({
   selector: 'app-tasks',
