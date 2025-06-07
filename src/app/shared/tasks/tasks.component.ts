@@ -1,8 +1,6 @@
-import { Component, inject, input, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
-import { dummyTasks } from '../../service/task/dummy-tasks';
 import { NewTaskComponent } from "./new-task/new-task.component";
-import { NewTaskData } from './task/task.model';
 import { TaskService } from '../../service/task/task.service';
 
 @Component({
@@ -21,10 +19,6 @@ export class TasksComponent {
 
   get selectedUserTasks() {
     return this.taskService.getUserTasks(this.userId);
-  }
-
-  onCompleteTask(id: string) {
-    this.taskService.removeTask(id);
   }
 
   onStartAddTask() {
